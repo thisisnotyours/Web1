@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //ECMAScript6 (2015년발표 : ES2015 or ES6 )
+
+       //1. 변수 선언 키워드 추가 : let, const
+
+       //기존의 var변수
+       var a=10;
+       document.write(a+"<br>");
+
+       //같은 이름의 변수를 또 선언하면?
+       var a=20;
+       document.write(a+'<br>');   
+       //상관없음... 그냥 'a'변수의 값만 20으로 변경. 대입이라고 생각함
+
+
+
+
+
+       //새로운 let 키워드로 변수 선언
+       let b=100;
+       document.write(b+"<br>");
+
+       //같은 이름으로 변수를 선언하면?
+    //    let b=200;   //let은 같은이름으로 하면 error! - 전체 동작불가
+    //    document.write(b+"<br>");
+
+        //즉, let은 var과 다르게 같은 이름의 변수사용 방지를 할 수 있음.
+
+        //let도 변수이므로 값 변경은 특별한 것이 없음
+        b=200;
+        document.write(b+"<br>");
+
+
+
+
+
+        //상수 만들기
+        const c= 1000;
+        document.write(c+"<br>");
+
+        //상수값 변경
+        // c=2000;    //error!   - 이 줄 아래부터 안됨
+        // document.write(c+"<br>"); 
+
+        //당연하게 const도 같은 이름의 변수를 만들면 안딤
+        //const c=2000;   //error- 치명적 에러 - 전체 동작불가
+
+
+
+
+
+
+        //let이나 const도 역시 자료형 자유롭게 저장 가능함
+        let d="aaa";
+        document.write(d+"<br>");
+
+        d=30;
+        document.write(d+"<br>");
+
+        d=true;
+        document.write(d+"<br>");
+
+        d=new Date();
+        document.write(d+"<br>");
+
+        const e="sam";
+        document.write(e+"<br>");
+
+        const f= new Date();
+        document.write(f+"<br>");
+
+
+
+
+
+        document.write('<hr><br>');
+
+        //let과 var의 지역 인식범위 차이
+        //var은 함수단위를 지역으로 인식
+        //let은 {중괄호}가 단위로 지역으로 인식
+
+        if(true){
+            var g=10;   //뜬금없게 이건 지역변수가 X 아님!!!
+            document.write(g+"<br>");
+        }
+
+        document.write(g+"<br>");   //원래 지역변수는 안나와야 하는데 나옴- 왜?? var은 함수만 지역으로 인식..
+
+
+        let h=10;
+        if(true){
+            let h=20;  //지역변수
+            document.write(h+"<br>");  //20  let은 {중괄호}안에는 지역으로 인식.
+        }
+
+        document.write(h+"<br>");   //10
+
+
+        function aaa(){
+            var k=10;   //지역변수
+            document.write("지역변수: "+k+"<br>");
+        }
+
+        aaa();
+        //document.write(k+"<br>");   //k를 인식하지 못함
+
+
+
+
+
+
+
+        for(var i=0; i<3; i++){
+            document.write("aaa<br>");
+        }
+        document.write(i+"<br>");
+
+
+
+
+        for(let i=0; i<3; i++){
+            document.write("aaa<br>");
+        }
+        document.write("?"+i+"<br>");  //i를 인식하지 못함
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> exeption </title>
+
+        <script>
+            //예외처리 : 의도하지 않은 결과물이 나올때 (에러랑은 다름)
+
+            //alet('aaa');   //여기서 에러가 나면 다음 줄이 실행이 안됨
+
+            //예외처리 : 에러가 발생해도 그 부분만 실행하지 않고 나머지는 정상적으로 실행되도록 하는 기법  
+            //         : simply, 에러가 나도 다운이 되지 않게 하는 기법
+            try{
+                alet('aaa');
+            }catch(e){    //에러 메세지의 이유를 e가 알려줌
+                document.write(e+"<br>");
+            }
+
+            document.write("예외처리 ..<br>");   //에러가 나든 안나든 이 실행문은 실행이 됨
+
+
+
+
+            //finally
+            try{
+                aaa();    //만든적이 없는 함수 호출해보기..
+            }catch(e){
+                document.write("에러!!<br>");
+            }finally{   //에러 여부와 상관없이 무조건 실행되는 영역
+                document.write("finally 여기는 무조건 실행!<br>");
+            }
+
+            function kkk(){
+                document.write("kkk<br>");
+            }
+
+
+
+
+            //throw - 일부러 에러를 발생해서 예외상황 처리
+            try{
+                var a=10;
+                var b=15;
+
+                var c= a-b;
+                if(c<0) throw "음수결과는 에러입니다.";   //음수가 안나오게 하는 실행문 -throw를 던져서 catch문이 받음  // c<0 :음수
+
+                document.write("결과 : "+c+"<br>");
+            }catch(e){
+                document.write("에러: "+ e+"<br>");
+            }
+
+            
+        </script>
+
+        
+
+
+        <!-- 객체 <-> json(*서버에 데이터를 전송하기위해 사용되는 문자열) 의 변환 -->
+        <script>
+            document.write("<hr><br>");
+
+            // JS객체 -> json 문자열로 변환
+            var person= {     //리터럴 객체
+                name: "sam",
+                age:20,
+                male: true,
+                test: {aaa:"aaa", bbb:"bb"},  //var person객체 안에 특정한 멤버변수 test안에 또 객체가 있는 모양
+
+                //멤버함수 : 메소드 -> 함수는 문자열로 변환이 안됨
+                show: function(){    
+                    document.write("show...<br>");
+                }
+            };
+
+
+            //객체를 -> json 문자열로 
+            var json= JSON.stringify(person);   //string화 시켜달라
+            document.write(json+"<br>");
+
+
+
+
+
+
+
+
+            //json 문자열 -> 객체 변환
+            var jsonStr= '{"name":"bmw", "model":520, "color":"red"}';  //ex: 받아온 json문자열의 키값들
+            var car= JSON.parse(jsonStr);   //json문자열을 파싱(분석) -> 각각의 키값들이 멤버변수가 됨. car.name
+            document.write(car.name+"<br>");
+            document.write(car.model+"<br>");
+            document.write(car.color+"<br>");
+
+
+
+        </script>
+
+
+    </head>
+    <body>
+        
+    </body>
+</html>

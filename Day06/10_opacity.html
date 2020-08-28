@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>effect</title>
+        <meta charset="utf-8">
+
+        <style>
+            img{opacity: 0.4;}
+            img:hover{opacity: 1.0;}    /*0.0-아예 안보일때 1.0-완전히 보일때*/
+
+            #aa{visibility: hidden;}   /*공간은 차지하고 안보일때*/
+            #aa{visibility: visible;}
+
+            #bb{display: none;}   /*안드로이드의 gone같음*/
+        </style>
+    </head>
+
+    <body>
+        
+        <h3>opacity</h3>
+        <img id="bb" src="./lion.png" width="150px" height="120px">
+        <img id="aa" src="./audio.png" width="150px" height="120px">
+
+    </body>
+</html>

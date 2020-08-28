@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Google Map</title>
+
+        <style>
+            #map{width: 100%; height: 100%;}
+        </style>
+
+        
+
+        <!-- 구글 api -->
+        <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFRmjpO-QOkRTwAFJtMp3XU9lTP6MMTHo&callback=initMap" async></script>
+      
+
+
+
+        <script>
+            function showMap(){
+                var e= document.getElementById('map');
+                var pos= {lat:37.562161, lng:127.035199};
+                map= new google.maps.Map(e, {center:pos, zoom:14});
+            }
+        </script>
+
+        <script>
+            function addMarker(){
+                var e= document.getElementById('map');
+            }
+        </script>
+    </head>
+
+
+
+
+
+
+    <body>
+        <button onclick="showMap()">Show Map</button>
+        <button onclick="addMarker()">Add Mark</button>
+
+        <div id="map"></div>
+    </body>
+</html>

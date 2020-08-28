@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{list-style: none;}
+
+a{text-decoration: none;}
+
+
+header{
+    width: 800px;
+    height: 95px;
+    background-color: #2d3a4b;
+
+    /* 자식요소가 absolute일때 부모요소의 좌상단을 기준으로 하려면 */
+    /* 부모요소는 절대로 static position이면 안됨!!! */
+    position: relative;   /*relative를 사용할때 밑에있는 absolute의 부모역을 하게됨*/
+}
+
+/* 제목영역의 메일로고 이미지 위치 지정- absolute(좌표)이용 */
+#logo{
+    position: absolute;   /*헤더가 아니라 문서를기준으로*/
+    top: 30px;
+    left: 30px;
+}
+
+/* 제목영역의 우상단 탑메뉴 위치 지정 */
+#top_menu{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+#top_menu a{color: white;}
+
+/* 제목영역의 메인 네비게이션 메뉴 */
+nav{
+    position: absolute;
+    bottom: 10px;
+    left: 220px;
+    font-size: 16px;
+}
+
+nav li{
+    display: inline;
+    margin-left: 30px;
+}
+
+nav li a{color: white;}
+
+
+
+
+/* 콘텐트 영역의 이미지 아래에 있는 배너 이미지를 inline으로 바꾸기 */
+#content li{
+    display: inline;
+    margin-left: 50px;
+}
+
+
+/* footer 이미지 */
+footer{
+    width: 800px;
+    height: 90px;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+}
+
+
+footer img{
+    margin: 10px 0 0 60px;
+}
+
+
+/* 전체페이지를 가운데로 정렬 */
+#page{
+    width: 820px; 
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+
+        <script>
+            function clickBtn(){
+                navigator.geolocation.getCurrentPosition(    //현재위치
+                function(position){   //첫번째함수- 성공했을때 실행
+                    var lat= position.coords.latitude;   //coords-좌표
+                    var lng= position.coords.longitude;
+                    document.getElementById('hh').innerHTML= lat+", "+lng;
+                }, 
+
+                function(error){     //두번째함수- 실패했을때 실행
+                    var str;
+
+                    switch( error.code ){
+                        case error.PERMISSION_DENIED:
+                            str="사용자 거부";
+                            break;
+
+                        case error.POSITION_UNAVAILABLE:
+                            str="지리정보가 없다"
+                            break;
+
+                        case error.TIMEOUT:
+                            str="시간초과";
+                            break;
+
+                        case error.UNKNOWN_ERROR:
+                            str="알수없는 에러";
+                            break;
+                    }
+
+                    document.getElementById('hh').innerHTML=str;
+
+                });
+            }
+
+
+            var id;   //watchPosition 하는녀석
+            function aaa(){
+                id= navigator.geolocation.watchPosition(function(position){   //두번째 파라미터 안써도 됌
+                    var lat= position.coords.latitude;   //coords-좌표
+                    var lng= position.coords.longitude;
+                    document.getElementById('hh').innerHTML= lat+", "+lng;
+                });
+            }
+
+
+            function bbb(){
+                navigator.geolocation.clearWatch(id);
+            }
+        </script>
+    </head>
+
+
+
+
+
+
+
+
+    <body>
+        <button onclick="clickBtn()">my location</button>
+        <h3 id="hh">location</h3>
+
+
+        <button onclick="aaa()">위치 자동 업데이트 시작</button>
+        <button onclick="bbb()">위치 자동 업데이트 종료</button>
+    </body>
+</html>

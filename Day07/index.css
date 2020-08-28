@@ -1,0 +1,142 @@
+/* 모든 요소들의 기본 default로 되어있는 margin과 padding 제거 */
+*{padding: 0; margin: 0;}
+
+/* 화면에 너무 붙어있는 것이 싫어서 */
+body{
+    padding: 30px;
+    background-color: rgb(224, 171, 151);
+}
+
+
+/* 제목줄 영역 */
+header{
+    padding: 5px;
+}
+
+header a{
+    text-decoration: none; 
+    color: #333333;
+}
+
+
+/* nav 메뉴 */
+nav{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+nav ul{
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    list-style: none;   /*불릿기호 없어짐*/
+    text-align: center;
+}
+
+nav ul li{
+    display: inline;   /*메뉴가 세로였던것이 옆으로 나열*/
+    margin-left: 2em;
+    letter-spacing: .3em;  /*0.3em- 글자의 30% 벌어짐*/
+}
+
+nav ul li a{
+    text-transform: uppercase;    /*대문자*/
+    text-decoration: none;    /*밑줄 없어짐*/
+    color: black;
+    line-height: 3em;     /*line-heihgt: 줄 높이지정/  height: 요소의 높이지정*/
+}
+
+
+nav ul li a:hover{
+    text-decoration: underline;   /*마우스 올리면 밑줄생김*/
+    color: red;     /*마우스 올리면 바뀌는 색*/
+}
+
+
+
+
+/* 왼쪽 사이드 영역 작업 aside */
+aside#left{
+    float: left;
+    width: 10em;
+    margin-right: 1em;
+}
+
+aside#left ul{
+    list-style: none;
+}
+
+aside#left ul li{
+    background-color: #3f3f3f;    /*리스트 색 줌*/
+    padding: 5px 10px;  /*위아래 좌우*/
+    border-bottom: 1px solid black;
+}
+
+aside#left ul li a{
+    color: cornsilk;
+    text-decoration: none;
+}
+
+aside#left ul li:hover{
+    background-color: red;
+}
+
+aside#left h4{
+    padding: 5px;
+}
+
+
+
+
+
+
+
+/* 메인 콘텐츠 영역 */
+section#main{
+    float: left;
+    padding: 5px;
+    width: 460px;
+}
+
+
+
+
+
+
+
+
+
+
+/* 오른쪽 사이드 영역 작업 aside */
+aside#right{
+    float: right;
+    padding: 10px;
+    width: 12em;
+}
+
+
+aside#right #shopcart{
+    margin-bottom: 30px;
+}
+
+aside#right #login input{
+    margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* footer 영역 */
+footer{
+    clear: both;
+    background-color: #333333;
+    color: cornsilk;
+    text-align: center;
+    padding: 1em 0em;
+}

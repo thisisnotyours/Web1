@@ -1,0 +1,35 @@
+<!DOCTYPE html>   
+<html>
+    <!-- 무조건 head 요소에 있는 것들이 body 요소보다 우위에 있음 -->
+    <head>
+        <title>페이지 제목</title>
+        <style>
+            p{color: red;}
+        </style>
+    </head>
+    <body>
+        <p>Hello world</p>
+        <!-- 그럼혹시 이 html 요소가 두개 있다면?? body 요소는 둘다 적용됨-->
+    </body>
+</html>
+
+<html>
+    <head>
+        <!-- title 요소가 두개 있으면 첫번째 것만 적용됨 -->
+        <title>페이지 제목 2</title>
+        <!-- style 요소는 작성한 순서대로 적용되므로  -->
+        <!-- 처음에 red 로 지정되었던 것이 이 곳에서 blue 로 변경 -->
+        <style>
+            p{color: blue;}
+        </style>
+    </head>
+    <body>
+        <p>Nice to meet you</p>
+    </body>
+</html>
+
+<!-- html 요소 밖에 있어도 문서에 있는 글씨이므로 그대로 나옴 -->
+Good Job!
+
+<!-- html 밖에 있어도 태그의 기본 특징이 적용  -->
+<h1>HTML5 헤딩1</h1>

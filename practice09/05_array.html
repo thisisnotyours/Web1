@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>array</title>
+
+        <script>
+            var arr=[10,20,30];
+            document.write(arr+"<br>");
+            document.write(arr[0]+"<br>");
+            document.write(arr[1]+"<br>");
+            document.write(arr[2]+"<br>");
+
+
+            var arr1=[10,"aaa",true];
+            document.write(arr1[0]+"<br>");
+            document.write(typeof(arr[0])+"<br>");
+            document.write(arr1+"<br>");
+
+            document.write(arr1[3]+"<br>");
+
+            document.write(arr1.length+"<br>");
+
+            arr1[5]= 100;
+            document.write(arr1+"<br>");
+            document.write(arr1[4]+"<br>");
+            document.write("<hr><br>");
+
+
+
+
+            var arr2= new Array(10,"aaa",true);
+            for(var i=0; i<arr2.length; i++){
+                document.write(arr2[i]+"<br>");
+            }
+            
+
+            document.write("<hr>");
+
+
+            for(var index in arr2){
+                document.write(arr2[index]+"<br>");
+            }
+
+
+
+            document.write("<hr>");
+
+
+
+            var arr3= new Array();
+            arr3[0]=10;
+            arr3[1]=20;
+            arr3[2]=30;
+            arr3[3]=40;
+            arr3[4]=50;
+            for(var i=0; i<arr3.length; i++){
+                document.write(arr3[i]+", ");
+            }
+
+
+
+            document.write("<hr><br>");
+
+
+
+
+
+            var arr4= new Array();
+            arr4['a']=10;
+            arr4['b']=20;
+            arr4['c']=30;
+            arr4['d']=40;
+            arr4['e']=50;
+
+            document.write(arr4['a']+"<br>");
+            document.write(arr4+"<br>");  //?
+
+
+
+            var arr5= [];
+            arr5['a']='hi';
+            arr5['b']='nice to';
+            arr5['c']='meet you';
+
+            document.write(arr5['a']+"<br>");
+            document.write(arr5['b']+"<br>");
+            document.write(arr5['c']+"<br>");
+
+
+            var arr6={'a':10, 'b':true};
+            document.write(arr6['a']+"<br>");
+            document.write(arr6['b']+"<br>");
+            document.write(arr6['d']+"<br>");
+
+
+
+            document.write(arr6.a+"<br>");
+            document.write(arr6.b+"<br>"); 
+
+            document.write("<hr><br>");
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <form action="" name="aa">
+            in1=<input type="text" name="in1"><br>
+            in2=<input type="text" name="in2"><br>
+            in3=<input type="text" name="in3"><br>
+            in4=<input type="text" name="in4"><br>
+        </form>
+
+        <script>
+            document.forms['aa'][0].value=10;
+            document.forms['aa'][1].value=20;
+            document.forms['aa']['in3'].value="ya";
+            document.forms['aa']['in4'].value=true;
+            
+
+            document.aa['in1'].value="change value";
+            document.aa['in2'].value="hey";
+
+
+            document.aa.in1.value="what are you saying";
+            document.aa.in4.value="what's the opposite of true";
+
+
+            for(var i=1; i<document.aa.length+1; i++){
+                document.aa['in'+i].value=i;
+            }
+        </script>
+
+
+
+
+
+        <script>
+            var arr7= new Array();
+            var a1=[10,20,30];
+            var a2=["aa","bb","cc"];
+            var a3=[true, false, 3.14];
+
+            arr7[0]= a1;
+            arr7[1]= a2;
+            arr7[2]= a3;
+
+            document.write(arr7[0][0]+"<br>");
+
+            for(var i=0; i<arr7.length; i++){
+                for(var k=0; k<arr7[i].length; k++){
+                    document.write(arr7[i][k]+", ");
+                }
+            }
+        </script>
+    </body>
+</html>

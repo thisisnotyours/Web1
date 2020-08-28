@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ajax</title>
+
+        <script>
+            function getTest(){
+                var name= document.getElementById('in1').value;
+                var email= document.getElementById('in2').value;
+
+                var url= './getTest.php?name='+name+"&email="+email;
+                var req= new XMLHttpRequest();
+
+                req.onreadystatechange= function(){
+                    if(req.readyState==4 && req.status==200){
+                        var ta= document.getElementById('ta');
+                        ta.innerHTML= req.responseText;
+                    }
+                }
+
+                req.open('GET',url, true);
+                req.send();
+
+            }
+
+
+
+
+
+            function postTest(){
+                var name= document.getElementById('in1').value;
+                var email= document.getElementById('in2').value;
+                var url= './postTest.php';
+                var req= new XMLHttpRequest();
+                req.onreadystatechange= function(){
+                    if(req.readyState==4 && req.status==200){
+                        var ta= document.getElementById('ta');
+                        ta.innerHTML= req.responseText;
+                    }
+                }
+
+                req.open('POST', url, true);
+                req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                req.send('name='+name+"&email="+email);
+            }
+        </script>
+    </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <body>
+        <fieldset name="aa">
+            <input type="text" name="name" id="in1">
+            <input type="text" name="email" id="in2">
+
+            <input type="submit" onclick="getTest()" value="Get">
+            <input type="submit" onclick="postTest()" value="Post">
+        </fieldset>
+
+
+        <hr><br>
+        <textarea id="ta" cols="50" rows="3"></textarea>
+    </body>
+</html>

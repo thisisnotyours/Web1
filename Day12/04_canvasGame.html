@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script>
+            //게임에 사용될 이미지들 부터 전역변수로 만들기
+            var imgBack= new Image();       //배경이미지
+            imgBack.src="./bg.png";
+
+            var imgPlayer= new Image();     //플레이어 이미지
+            imgPlayer.src="./marid.png";
+
+            var canvas;     //도화지
+            var context;    //화가객체
+
+            //적군 이미지
+            var imgEnemy= new Image();
+            imgEnemy.src="./peach.png";
+
+            //적군 이미지 객체들
+            var enemies= new Array();
+
+
+
+
+            //플레이어가 그려질 좌표값(이미지의 가운데 좌표)
+            var x= 200, y=250;     //화면의 정가운데
+            var w= 40, h= 40;      //이미지의 절반 너비 & 높이
+
+            var dx=1, dy=1;        //플레이어의 이동속도와 방향을 결정
+
+            //body의 load 로딩이 완료되었을때 실행되는 함수
+            function loaded(){
+                 canvas= document.getElementById('c1');
+                 context= canvas.getContext('2d');
+
+                 runGame();
+                 //10mill sencond 마다 runGame()을 다시 실행해라!!  ->1초에 100번 그림을 그리는 격?
+                 window.setInterval(runGame, 10);    
+            }
+
+
+
+
+            //게임을 실행시키는 함수
+            function runGame(){
+
+                //적군을 만들어라..
+                var p= Math.floor(Math.random()*20); //0~19
+                if(p==0) makeEnemy();
+
+
+
+                //그림을 그려라
+                context.drawImage(imgBack, 0, 0, 400, 500); 
+                //context.drawImage(imgPlayer, x, y, 80, 80);  
+                context.drawImage(imgPlayer, x-w, y-w, 80, 80);  
+
+
+                //적군들 그리기
+                enemies.forEach(function(e){    //반복문 돌면서 실행되는 함수
+                    context.drawImage(imgEnemy, e.x-40, e.y-40, 80, 80);
+                });
+
+
+
+                //움직여라 (좌표변경)
+                x += dx;   //== x++;
+                y += dy;
+
+                //플레이어가 화면 밖으로 나가지 않도록..
+                //자동 튕기도록
+                if(x>400-w || x<=w) dx= -dx;   //x축 벽에 부딛칠때 튕겨라
+                if(y>=500-h || y<=h) dy= -dy; 
+
+                // enemies= enemies.map(function(e){
+                //    e.y + e.dy;
+                    
+                // });
+
+                // enemies= enemies.map(function(e){
+                //     e.y= e.y + e.dy;
+                //     return e;
+                // });
+
+                enemies.forEach(function(e){
+                    e.y += e.dy;
+                });
+                
+
+
+            }
+
+
+
+            //적군 만들기
+            function makeEnemy(){
+                //현재 적군객체 개수
+                var n= enemies.length;
+
+                //random 값 얻어내기
+                var a= Math.random()*400;   //0~399중에 하나
+                var b= Math.random()*5 + 1;     //1~6까지
+                enemies[n]= {
+                    x: a,
+                    y: -40,
+                    dy: b
+                };
+            }
+
+
+
+
+
+            //키보드 눌렀을때
+            function keyDown(){
+                var keycode= event.keyCode;
+                switch(keycode){
+                    case 37: dx=-5; break;    //left
+                    case 38: dy=-5; break;    //up
+                    case 39: dx=5; break;     //right
+                    case 40: dy=5; break;     //down
+                }
+            }
+
+
+
+            //키보드 놓았을때
+            function keyUp(){
+                var keycode= event.keyCode;
+                if(keycode>=37 && keycode<=40){
+                    dx=0;
+                    dy=0;
+                }
+            }
+
+        </script>
+    </head>
+
+
+
+
+
+    <body onload="loaded()" onkeydown="keyDown()" onkeyup="keyUp()">
+        <canvas id="c1" width="400" height="500" style="border:2px solid black"></canvas>
+    </body>
+</html>

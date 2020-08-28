@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>box model</title>
+        <meta charset="utf-8">
+
+        <style>
+            p.border{
+                /* 경계선의 스타일 [width지정이 없으면 자동 3px]*/
+                border-style: solid;
+
+                /* top, right, bottom, left로 나누어 스타일링 지정 가능 */
+                border-top-style: dotted;
+                border-bottom-style: solid;
+
+                /* 경계선 두께 : px, thin, medium, thick */
+                border-width: 4px;
+                border-width: thin;
+                border-width: thick;
+                border-bottom-width: 8px;   /*아래쪽만 두껍게 지정*/
+                
+                /* 색상 */
+                border-color: blueviolet;
+                border-right-color: darkblue;
+
+                /* 모서리 둥글게 */
+                border-radius: 20px;
+                border-bottom-left-radius: 0px;   /*왼쪽 아래 둥글지 않게- 0px*/
+                border-top-right-radius: 0px;     /*오른쪽 아래 둥글지 않게- 0px*/
+
+                /* 경계선 이미지 */
+                /* 이미지가 보일만큼 경계선의 두계를 조절해야함- 너무 작은면 안보임 */
+                border: 30px solid transparent;
+                border-image-source: url("./border.png");
+                border-image-slice: 30 30;   /*높이 너비*/
+                border-image-repeat: round;   /*그림이 반복적으로 나타남*/
+
+                /* 요소 크기 */
+                width: 150px;   /**크기/
+                width: 150em;  /*em은 글자수*/
+                width: 70%;  /*70% 크기*/
+                height: 250%;   /*body 요소의 높이가 먼저 지정되어있어야 함- 여긴 body가 아니라 적용안됨*/
+
+                /* 마진-요소간의 간격 */
+                /* margin-left: 50px; */
+                /* 마진을 이용해서 (블럭요소) 중앙정렬 */  /*인라인은 중앙정렬 안됨*/
+                margin-left: auto; margin-right: auto;   
+            }  /*p요소것*/
+
+
+            /* 인라인요소 크기지정 */
+            /* 인라인요소는 크기지정이 불가능함! */
+            a{background-color: teal; width: 50%;}
+            em{background-color: tomato;}
+
+            /* 인라인요소(inline-block) 중에서 크기지정 가능한 요소들 */
+            input{width: 100%; background-color: thistle;}
+            img{width: 300px;}
+
+
+
+            /* 두요소의 마진은 서로 겹침 */
+            #p1{background-color: red; height: 50px; margin: 0px; margin-bottom: 10px;}
+            #p2{background-color: green; height: 50px; margin: 0px; margin-top: 20px;}
+
+            /* 마진에 음수를 넣으면 요소가 겹침 */
+            #p1{margin: 0px;}
+            #p2{margin: 0px; margin-top: -30px; width: 50%;}
+
+
+            /* 배경 색상, 이미지 지정 */
+            p#background{
+                background-color: greenyellow;
+                background-image: url("./image.png");
+                background-size: 200px 100px;    /*가로, 세로- 이미지가 반복됨*/
+
+
+                background-repeat: repeat;  /*기본*/
+                background-repeat: repeat-x;  /*가로측만 이미지가 반복*/
+                background-repeat: no-repeat;  
+
+                background-position: center;  
+                background-position: right top;   /*좌측상단*/
+                background-position: top center;  /*우측 가운데*/
+
+
+                /* 축약형- 필요한 것만 쓰면 됌 */
+                background: pink url("./image.png") no-repeat center;
+
+
+                padding: 30px;
+            }
+
+            /* 배경이미지가 화면에 붙는 방식지정 */
+            p#attachment{
+                width: 60%;
+                height: 300px;
+                border: 2px solid blue;
+                overflow: scroll;    /*내용물이 border안에서 스크롤됨*/
+                margin-left: auto; margin-right: auto;   /*가운데 정렬*/
+
+                background-image: url("./image.png");    /*바둑판처럼 보여짐*/ 
+                background-size: 200px 100px;
+                background-repeat: no-repeat;
+                background-position: center;
+
+                /*배경이미지가 붙는 형태 지정*/
+                background-attachment: scroll;   /*안에있는 콘텐츠가 스크롤되어도 항상 배경의 포지션을 유지함*/
+                background-attachment: local;    /*콘텐츠와 같이 스크롤 됨(단, 콘텐츠의 양이 요소보다 클때)*/
+                background-attachment: fixed;    /*브라우저의 영역을 기준으로 배치(단, p요소의 배경이므로 p요소의 밖에서는 보이지 않음)*/
+            }
+
+        
+
+        </style>
+    </head>
+
+    <body>
+
+        <!-- 경계선 Border/ 요소크기/ 중앙정렬 -->
+        <p class="border">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto autem inventore amet placeat et voluptates! Officiis culpa, nemo minima qui, deserunt officia repudiandae, voluptatem minus excepturi perspiciatis nobis beatae maxime.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat aut minus rem quas, explicabo doloremque amet ratione sed accusamus numquam similique? Dolores a animi dignissimos, minima est nisi veritatis repudiandae?
+        </p>
+
+
+        <!-- 인라인 요소는 기본적으로 width와 height이 안됨 -->
+        <a href="">Google</a>
+        <em>Nice to meet you</em>
+
+        <!-- 기본적으로는 안되지만 인라인 요소중에서 width와 height이 되는 요소가 있음 -->
+        <input type="text">
+        <img src="./back.jpg">
+        <hr>
+
+        <!-- margin -->
+        <div class="m">
+            <p id="p1">p1</p>
+            <p id="p2">p2</p>
+        </div>
+
+
+        <!-- 배경 -->
+        <p id="background">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, quaerat! Sed, quisquam. Eius asperiores ipsam impedit, atque laudantium magni perferendis? Distinctio exercitationem impedit sunt voluptatibus, ipsum sint alias porro eius?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae vero et, distinctio magnam ipsum culpa odio earum at. Sapiente, eum? Tempora eaque fuga repellendus, beatae pariatur maxime voluptate doloribus eveniet.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem officia voluptas rem perspiciatis obcaecati beatae iure, non maiores architecto commodi quae id ipsa cumque? Recusandae deserunt minima corporis cumque exercitationem!
+        </p>
+
+
+
+        <!-- background-attachment -->
+        <p id="attachment">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, ad! Quibusdam cumque, nihil, ut pariatur ipsum modi, dignissimos voluptatem alias architecto quam eaque? Nam, eos obcaecati sed molestiae in quo.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas vero odio qui. Quaerat sequi iusto at? Eius ex porro dolorem consequuntur earum blanditiis at consequatur non eveniet optio, hic accusantium?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem commodi placeat ut ipsum dolorem deleniti facere quibusdam amet labore laboriosam totam, dolor maxime et eum quisquam distinctio minima animi! Eos!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum dolores tenetur eveniet voluptate repudiandae minus voluptas aut facere quia, nulla eum ut. Aliquid, nesciunt voluptatibus! Non maiores eaque voluptatum alias.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut hic officiis fugiat, ab quae non assumenda quis adipisci voluptatem, laudantium nemo magni ipsam eveniet omnis tempora numquam sapiente. Placeat, cupiditate?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae dolores, veniam laudantium distinctio facilis nisi architecto ex iste fugit, fugiat nulla, suscipit illum esse recusandae? Velit asperiores quaerat sint optio.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, id similique iste obcaecati laudantium numquam aut, sint a praesentium perspiciatis dolores aperiam dolorem. Quis officia hic nobis iusto architecto reiciendis!
+        </p>
+
+    </body>
+</html>

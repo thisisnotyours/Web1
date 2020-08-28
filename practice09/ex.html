@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ex</title>
+
+
+        <script>
+            var person={
+                name:"sam",
+                age:20,
+
+                show: function(){
+                    document.write(this.name+", "+this.age+"<br>");
+                }
+            };
+
+            document.write(person.name+", ");
+            document.write(person.age+"<br>");
+            person.show();
+
+
+
+            var person2={
+                name:"robin",
+                age:25,
+
+                show:function(){
+                    document.write("person2객체: "+this.name+", "+this.age)+"<br>";
+                }, 
+
+
+                add:function(a,b){
+                    var c= a+b;
+                    document.write("add 호출:"+ c + "<br>");
+                }
+
+                
+            }
+
+            document.write(person2.name+","+ person2.age+"<br>");
+            person2.show();  
+            document.write("<br>");
+            person2.add(5,3);
+            person2.add("안녕","하세요");
+
+
+
+
+            person.tel="01040001338";
+            document.write("name: "+person.name+"<br>");
+            document.write("age: "+person.age+"<br>");
+            document.write("tel: "+person.tel+"<br>");
+
+
+            person.out= function(){
+                document.write("out: "+this.name+"<br>");
+                document.write("out: "+this.age+"<br>");
+                document.write("out: "+this.tel+"<br>");
+            }
+
+            person.out();
+
+
+
+            document.write("<hr>");
+
+
+
+
+
+
+
+
+
+
+            
+            function Student(){
+                this.name="kim";
+                this.age=25;
+                this.major="psychology";
+
+                this.show=function(){
+                    document.write("student show: "+this.name+", "+this.age+", "+this.major+"<br>");
+                }
+
+                
+
+
+                var s= new Student();
+                s.show();
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

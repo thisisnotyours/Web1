@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>table</title>
+        <meta charset="utf-8">
+
+
+
+        <style>
+
+            table{
+                border: 2px solid;
+                border-collapse: collapse;   /*무너뜨리다- 한줄로 보이게*/
+                text-align: center;
+            }
+
+            td,th{border: 1px solid blue; padding: 10px 5px;}
+            th{background-color: teal; color: white;}
+
+            tr:nth-child(2n){background-color: rgb(221, 214, 214);}
+
+            td:first-child{width: 40%;}   /*td에만 width를 줬지만 엑셀처럼 th도 늘어남 */
+
+            th{border-bottom: double red;}
+
+            /* 보이지는 않지만 기본적으로 table의 첫번째 자식은 tbody라는 요소임 */
+            table>:nth-child(1){border: 10px dotted blue;}    /*table의 첫번째 자식은 tbody*/
+
+            /* table의 자식 tr : 적용안됨!! Why?*/
+            table>tr{color: red;}     /*  > 꺽새는 자식이라는 의미 */
+
+            /* table의 자손 tr */
+            table tr{color: royalblue;}
+
+        </style>
+
+    </head>
+
+    <body>
+        
+        <table>
+
+            <tr>
+                <th>이름</th>
+                <th>이메일</th>
+            </tr>
+            <tr>
+                <td>김철수</td>
+                <td>chul@google.com</td>
+            </tr>
+
+            <tr>
+                <td>김영희</td>
+                <td>young@google.com</td>
+            </tr>
+            
+            <tr>
+                <td>홍길동</td>
+                <td>hong@google.com</td>
+            </tr>
+
+            <tr>
+                <td>김수진</td>
+                <td>soojin@google.com</td>
+            </tr>
+
+        </table>
+
+    </body>
+</html>

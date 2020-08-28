@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ajax</title>
+
+
+        <script>
+            function getTest(){
+                //서버에 보낼 데이터
+                var name= document.getElementById('in1').value;
+                var email= document.getElementById('in2').value;  //아이디로 찾아서 그 놈의 value값 가져오기
+
+
+                //서버에 보낼 url (주소)
+                var url= './getTest.php?name='+name+"&email="+email;   //?뒤에= 키값
+
+
+                //서버에 데이터를 요청(Request)하는 객체 생성
+                var req= new XMLHttpRequest();   //일종의 해임달같은 객체
+
+
+                //서버로부터 응답을 받으면 실행되는 콜백함수 지정    //응답상황이 바뀔때마다 실행되는 콜백함수
+                //send()보다 먼저 해야함
+                req.onreadystatechange= function(){
+                    if(req.readyState==4 && req.status==200){   //req.readyState==4 마지막 응답일때, req.status==200 결과가 200일때(200-성공,ok/ 404-실패,not found)
+                    var ta= document.getElementById('ta');
+                    ta.innerHTML= req.responseText;   //응답받음=결과
+                    }  
+                }
+
+                req.open('GET', url, true);    //스트림을 열어라   //세번째 파라미터의 역할- 비동기(thread쓸거냐)할거냐?
+                req.send();     //데이터 보내기
+                
+
+            }
+
+
+
+
+
+
+
+
+
+            function postTest(){
+                var name= document.getElementById('in1').value;
+                var email= document.getElementById('in2').value;
+
+                var req= new XMLHttpRequest();
+                req.onreadystatechange= function(){
+                    if(req.readyState==4 && req.status==200){
+                        ta.innerHTML= req.responseText;
+                    }
+                }
+
+                req.open('POST', './postTest.php', true);
+
+                //데이터 보내기 위해서는 반드시 header 작업이 필요함
+                req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                req.send('name='+name+"&email="+email);
+            }
+
+        </script>
+    </head>
+
+
+
+
+
+
+
+
+
+
+
+    <body>
+        
+        <!-- form요소를 쓰지않고 사용하기 -->
+        <fieldset name="aa">
+            <input type="text" name="name" id="in1">
+            <input type="text" name="email" id="in2">
+
+            <input type="submit" onclick="getTest()" value="Get방식">
+            <input type="submit" onclick="postTest()" value="Post방식">
+        </fieldset>
+
+
+
+        <hr><br>
+        <textarea id="ta" cols="50" rows="3"></textarea>
+
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dom</title>
+    </head>
+    <body>
+        <p id="p1"><a href="" target="">bbb</a></p>
+
+        <script>
+            var e= document.getElementById('p1');
+            //alert(e.nodeType+", "+e.nodeName);
+
+            var attrs= e.attributes;
+            //alert(attrs[0].nodeType+", "+attrs[0].nodeName);
+            //alert(attrs[0].value);
+
+            var e= e.firstChild;
+            //alert(e.nodeType+", "+e.nodeName);
+
+            var attrs= e.attributes;
+            //alert(attrs[0].nodeType+', '+attrs[0].nodeName);
+            //alert(attrs[1].nodeType+", "+attrs[1].nodeName);
+
+            var t= e.firstChild;
+            //alert(t.nodeType+", "+t.nodeName);
+            //alert(t.data);
+        </script>
+
+        <hr><br>
+
+
+
+
+
+        <ul>
+            <li>apple</li>
+            <li>banana</li>
+            <li>cider</li>
+            <li>dish washer</li>
+        </ul>
+
+        <ul>
+            <li>kicks</li>
+            <li>sessy</li>
+        </ul>
+
+        <script>
+            var items= document.getElementsByTagName('li');
+            //alert(items.length);
+
+            var lists= document.getElementsByTagName('ul');
+            var items= lists[0].getElementsByTagName('li');
+            //alert(items.length);
+
+            //alert(items[2].firstChild.data);
+
+            //alert(lists[0].firstChild.nodeName);
+
+            //alert(lists[0].firstElementChild.nodeName);
+            //alert(lists[0].firstElementChild.firstChild.data);
+
+            //alert(lists[0].lastElementChild.firstChild.data);
+        </script>
+
+
+        <hr>
+        <br>
+        
+        <div>
+            <p>Fruits Lists</p>
+            <ul>
+                <li>apple</li>
+                <li>banana</li>
+                <li>orange</li>
+            </ul>
+        </div>
+
+        <button onclick="clickBtn(this)">Button</button>
+        <p></p>
+
+        <script>
+            function clickBtn(e){
+                var divs= document.getElementsByTagName('div');
+
+                var p= divs[0].firstElementChild;
+
+                var ul= p.nextSibling;
+                var ul= p.nextElementSibling;
+
+                //alert(ul.nodeName);
+
+                //alert(ul.childNodes.length);
+
+                //alert(ul.childElementCount);
+            }
+        </script>
+
+
+    </body>
+
+</html>

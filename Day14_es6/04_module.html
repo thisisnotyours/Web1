@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="module">
+        //모듈 : js문서 안에서 다른 js문서의 함수나 변수들을 사용하는 기술
+        //협업할 때 각자 js문서를 만들고 각 문서안에 있는 코드들을 재사용하여 프로젝트의 제작속도를 향상시킴
+
+        //HTML을 통해서 묶으면 상관없지만 
+        // .js끼리만으로는 서로 묶여지지않음
+        // 근데 React Native앱(하이브리드)에서는 .js만으로 앱을 만듦
+        // script 요소에 module이라는 타입을 지정해주면 테스트 할 수 있음
+
+        //default export 한것
+        // import show from './module.js';
+
+        // //default 로 export한것이 아닌것들은 반드시 구조분해 할당같은 문법이 필요 (근데 구조분해랑은 다름)
+        // import {aaa, num} from './module.js';
+        // import {age as a} from './module.js';    //age를 a로 부르기로 함
+
+        //default export 한것과 안한것 한꺼번에 import하기
+        import show, {aaa, num, age as a} from './module.js';
+
+        show();
+        aaa();
+        alert(num);
+        alert(a);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body onkeypress="aaa()">
+    <h3 id="hh"></h3>
+
+    <script>
+        function aaa(){
+            //alert();
+            //키 이벤트의 입력값은 window객체의 속성으로 존재함
+            var keycode= window.event.keyCode;
+            var hh= document.getElementById('hh');
+            //char 코드로부터 String을 만들어라
+            hh.innerHTML=keycode+", "+String.fromCharCode(keycode)+", "+window.event.shiftKey;    //shiftKey를 누르고 키를 입력하면 true가 나옴 
+        }
+    </script>
+
+
+
+
+    <hr>
+    <br>
+    <!-- 이벤트 처리방식에 따라 실행되는 콜백함수 안에서 -->
+    <!-- this 키워드의 객체가 살짝 다름 -->
+    <!-- keyup: 키를 입력하고 손을 띄면 발동 -->
+    <input type="text" onkeyup="bbb()">
+    <script>
+        var bbb= function(){
+            alert(this);  //this : 이 문서의 최상위객체 :  window
+        }
+    </script>
+
+
+
+
+
+    <input type="text" id="in1">
+    <script>
+        document.getElementById('in1').addEventListener('keyup', function(){
+            alert(this);   //this : 리스너가 추가된 요소객체를 의미함 [여기서는 input요소]
+        });
+    </script>
+
+
+
+
+    <hr>
+    <br>
+    <!-- 새로생긴 기술 -->
+    <!-- id로 요소를 찾을때 getElementXXX() 없이 요소 제어 -->
+    <!-- 이미 요소의 id속성값이 window객체의 멤버변수(속성)이 됨 -->
+    <button id="btn1">button</button>
+    <h2 id="kkk"></h2>
+    <script>
+        //원래는 getElementXXX()를 써서 btn1을 찾아야함.
+        btn1.onclick= function(){
+            //alert();
+            //원래는 window.kkk이렇게 찾아야되는데 지금은 window를 생략하고 쓸수있는 기술이 생김..
+            kkk.innerHTML="Hello world";
+        }
+    </script>
+
+
+</body>
+</html>

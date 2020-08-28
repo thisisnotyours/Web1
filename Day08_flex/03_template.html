@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>flex style example</title>
+        <meta charset="utf-8">
+
+        <style>
+            body{
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            /* header요소 [클래스선택자를 사용함으로써 나중에 다른요소에 같은 스타일 지정할 때 용이해짐] */
+            .header{
+                background-color: #1abc9c;
+                height: 160px;
+                display: flex;
+                flex-direction: column;  /*수직배치*/
+                justify-content: center; 
+                align-items: center;
+                color: white;
+            }
+
+            /* navbar style */
+            .navbar{
+                display: flex;   /*display: flex를 하면 안에있는 모든 자식요소들이 inline-block이 됨-그래서 overflow되지않고 잘 감쌈*/
+                background-color: #333;
+            }
+
+            .navbar a{
+                color: white;
+                padding: 14px 20px;
+                text-decoration: none;
+                text-align: center;
+            }
+
+            .navbar a:hover{
+                background-color: #ddd;
+                color: black;
+            }
+
+
+            /* 콘텐츠 2개의 영역- aside, section */
+            /* [좌우]로 배치되도록- flex를 쓰면 좌우로 배치됨 */
+            .container{
+                display: flex;   
+                /* 브라우저 사이즈가 작아지면 밖으로 나갈 수 있어서 */
+                /* 자동 줄 바꿈 되도록..wrap */
+                flex-wrap: wrap;
+            }
+
+            /* 왼쪽 사이드 */
+            .side{
+                flex-grow: 3;   /*row방향이므로 너비가 30%의 비율*/
+                background-color: #b1a8a891;
+                padding: 20px;
+            }
+
+
+            /* 본문 영역 */
+            .main{
+                flex: 7;
+                background-color: white;
+                padding: 20px;
+            }
+
+
+            /* 실제 웹페이지에 아직 이미지를 넣지 않았지만 */
+            /* 이미지가 높여질 공간이라는 시각적 효과를 위한 스타일*/
+            .fakeimg{
+                background-color: #aaaaaa;
+                width: 100%;
+                padding: 20px;
+            }
+
+
+            /* footer */
+            .footer{
+                padding: 20px;
+                background-color: #ddd;
+                text-align: center;
+            }
+
+            /* 반응형 웹 만들기 (RWD- responsive web design)*/
+            /* 미디어쿼리 적용 (해상도에 반응하기) */
+            /* 화면사이즈가 700px보다 작을때 {}안의 스타일을 적용 */
+            @media screen and (max-width:700px) {
+                .container, .navbar{
+                    flex-direction: column;
+                }
+                
+            }
+
+
+        </style>
+    </head>
+    <body>
+        
+        <!-- 1) note : 사이트를 열었을때 알림사항들을 보여주는 영역 -->
+        <div style="background-color: yellow; padding: 5px;">
+            <h4 style="text-align: center;">브라우저 사이즈를 조절하면 반응형웹 효과가 있습니다.</h4>
+        </div>
+
+        <!-- header 영역 -->
+        <header class="header">
+            <h1>My Website</h1>
+            <p>With a <strong>flexible</strong> layout</p>
+        </header>
+
+        <!-- Navigation menu -->
+        <nav class="navbar">
+            <a href="">Link</a>
+            <a href="">Link</a>
+            <a href="">Link</a>
+            <a href="">Link</a>
+        </nav>
+
+        <!-- aside와 section영역 2개를 옆으로 배치하기 위해서 -->
+        <!-- flex스타일로 지정 row방향 -->
+        <div class="container">
+            <aside class="side">
+                <h2>About me</h2>
+                <h5>Photo of me:</h5>
+                <div class="fakeimg" style="height: 200px;">Image</div>
+                <p>Some text about me</p>
+
+                <h3>More Text</h3>
+                <p>This is more text.</p>
+                <div class="fakeimg" style="height: 60px;">Image</div>
+                <br>
+                <div class="fakeimg" style="height: 60px;">Image</div>
+                <br>
+                <div class="fakeimg" style="height: 60px;">Image</div>
+            </aside>
+            <section class="main">
+                <h2>TITLE HEADING</h2>
+                <h5>Title Description, Dec 7, 2020</h5>
+                <div class="fakeimg" style="height: 200px;">Image</div>
+                <p>Some text...</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, aliquid ab, magnam et adipisci amet tempore beatae quo dolores repellendus exercitationem quam esse praesentium dolorem distinctio recusandae possimus totam non?</p>
+            
+                <h2>TITLE HEADING</h2>
+                <h5>Title Description, Dec 7, 2020</h5>
+                <div class="fakeimg" style="height: 200px;">Image</div>
+                <p>Some text...</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure, aliquid ab, magnam et adipisci amet tempore beatae quo dolores repellendus exercitationem quam esse praesentium dolorem distinctio recusandae possimus totam non?</p>
+            </section>
+        </div>
+
+
+
+        <!-- footer 영역 -->
+        <div class="footer">
+            <h2>Footer</h2>
+        </div>
+
+    </body>
+</html>

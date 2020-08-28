@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>dialog</title>
+
+    <script>
+        //일반적인 경고창. (경고창이 여러개면 차례대로 실행됨)
+        alert();
+        alert('알림!!');
+
+        //사용자에게 확인 또는 취소를 선택하게 하는 다이얼로그
+        //확인/취소 선택결과는 함수의 리턴으로 : true/ false
+        var answer= confirm('종료하시겠습니까?');
+        document.write(answer + "<br>");
+
+
+        //사용자 입력!- 리턴값은 입력된 string임.
+        //단, 값을 입력하지 않고 취소를 누르면 null값이 리턴
+        //값을 입력하지 않고 확인 " " 빈 문자열 리턴
+        //두번째 파라미터 : input 영역안에 기본값 지정가능
+        var age= prompt('당신의 나이를 입력하세요.',"0");
+        document.write(age+"<br>");
+
+
+        function aaa(){
+            document.write("화면 전체 갱신됨");
+        }
+    </script>
+</head>
+<body>
+    <button onclick="aaa()">click</button>
+</body>
+</html>

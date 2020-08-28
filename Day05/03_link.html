@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>의사 선택자 연습</title>
+
+        <style>
+            a#anchor:link{color: blue;}
+            a#anchor:visited{color: green;}
+            a#anchor:hover{color: red; font-size: 2em;}
+            a#anchor:active{color: yellow;}
+
+            /* 모든 요소에 : hover 가능함 */
+            p:hover{background-color: violet;}
+
+            img{background-color: yellow;}
+            img:hover{background-color: cornflowerblue; width: 50%;}  /*img는 inline block으로 크기 지정가능*/
+
+        </style>
+    </head>
+
+
+
+
+
+
+    <body>
+        
+        <!-- 쿠키삭제 안해도 2를 붙이면 색이 계속 적용됨 -->
+        <a href="http://www.naver.com2">naver</a>
+        <br>
+
+        <a href="http://www.google.com" id="anchor">aaa</a>
+        <p>Hello world</p>
+
+
+        <img src="./image.png" alt="">
+
+
+
+    </body>
+</html>

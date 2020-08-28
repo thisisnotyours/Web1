@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function(){
+            alert('aaa');
+            jQuery('#btn').click(function(){
+                //alert();
+                //jQuery('#hh').hide();
+                $('#hh').hide();
+            });
+        });
+
+
+        $('#btn2').click(function(){
+            $('#hh').show();
+        });
+
+        $('#btn3').click(function(){
+            $('#hh').toggle();
+        });
+    </script>
+</head>
+
+
+
+
+
+<body>
+    <button id="btn">hide</button>
+        <button id="btn2">show</button>
+        <button id="btn3">toggle</button>
+        <hr><br>
+        <h2 id="hh">Hello world</h2>
+
+        <hr>
+        <br>
+        <!-- 입력필드의 이벤트 처리 -->
+        이름 : <input type="text" >
+
+
+        <hr>
+        <br>
+        <button id="b1">hide</button>
+        <button id="b2">show</button>
+        <button id="b3">toggle</button>
+        <button id="b4">slideDown</button>
+        <button id="b5">move</button>
+
+        <br>
+        <img src="./ms19.png" alt="pig" width="150">
+
+
+
+        <hr>
+
+        <p id="p1" value="안녕">Hello <strong>Android</strong> 입니다.</p>
+        <button id="b6">text 읽기</button>
+        <button id="b7">html 읽기</button>
+        <button id="b8">버튼</button>
+        <input type="text" id="in3" value="Hello world">
+        <p id="pp">안녕하세요</p>
+
+        <script>
+            $('#b6').click(function(){
+                var s= $('#p1').text();
+                alert(s);
+            });
+
+
+            $('#b7').click(function(){
+                var v= $('#p1').html();
+                alert(v);
+            });
+
+            $('#b8').click(function(){
+                var f= $('#in3').val();
+                alert(f);
+            });
+
+            $('#b8').click(function(){
+                var b= $('#pp').text();
+                alert(b);
+            });
+        </script>
+</body>
+</html>

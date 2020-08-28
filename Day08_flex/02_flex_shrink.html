@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+
+        <style>
+
+            .container{
+                display: flex;  /*flex하면 자식요소들이 wrap으로 변함- width를 줄수있음*/
+            }
+
+            .container>div{
+                background-color: aqua;
+                color: black;
+                width: 100px;
+                margin: 10px;
+                line-height: 50px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <!-- 다른요소들에 비해 0만큼 줄어들겠다-> 이말은 안 줄어든다는 뜻 -->
+            <div>1</div>
+            <div>2</div>
+            <div style="flex-shrink: 0;">3</div>
+            <div>4</div>
+            <div>5</div>
+            <!-- 다른요소들과 1:1 비율로 줄어들겠디 -->
+            <div style="flex-shrink: 1;">6</div>
+            <div>7</div>
+            <div>8</div>
+            <!-- 다른요소들보다 2배 비율로 줄어들겠다 -->
+            <div style="flex-shrink: 2;">9</div>
+            <div>10</div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dom</title>
+    </head>
+    <body>
+        <!-- DOM(Document Object Model) -->
+        <!-- Dom 트리의 가지에 있는 요소 하나하나를 node 라고 부름 -->
+        <!-- node 의 종료 : element node, attribute node, text node (요소,속성,텍스트 노드) -->
+        <!-- 노드간의 관계 : parent node, child node, sibling node <-이 관계를 이용해서 요소를 제어 가능 -->
+
+        <p id="p1"><a href="" target="">bbb</a></p>
+
+        <script>
+            //id=p1인 p요소
+            var e= document.getElementById('p1');
+            //alert(e.nodeType+", "+e.nodeName);   //nodeType:1 => '요소'타입, nodeName => p요소
+
+            //p요소의 속성
+            var attrs= e.attributes;   //속성들을 [배열]로 리턴해줌  //어떤 속성들이 이 요소에 있는지 확인할 때 사용
+            //alert(attrs[0].nodeType+", "+attrs[0].nodeName);    //nodetype-2(속성), nodename-id
+            //alert(attrs[0].value);    //속성 값을 알수있음  //p1 
+
+            //p 요소의 첫번째 자식노드 : a요소
+            var e= e.firstChild;
+           //alert(e.nodeType+", "+e.nodeName);   //nodetype-1, nodename- a
+
+            //a요소의 속성
+            var attrs= e.attributes;   //여기서 e는 a 요소
+            //alert(attrs[0].nodeType+", "+attrs[0].nodeName);   //2, href
+            //alert(attrs[1].nodeType+", "+attrs[1].nodeName);   //2, target
+
+            //a요소의 첫번째 자식노드 : 텍스트 노드
+            var t= e.firstChild;
+            //alert(t.nodeType+", "+t.nodeName);
+            //alert(t.data);   //텍스트 노드의 값 출력
+
+
+        </script>
+
+
+        <hr>
+
+
+        <!-- 자식노드들 제어하기 -->
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+            <li>ddd</li>
+        </ul>
+
+        <ul>
+            <li>kkk</li>
+            <li>sss</li>
+        </ul>
+
+        <script>
+            // 리스트요소 전체 개수
+            var items= document.getElementsByTagName('li');
+            //alert(items.length);   //6
+
+            //첫번째 ul요소의 자식들중 li요소의 개수
+            var lists= document.getElementsByTagName('ul');
+            var items= lists[0].getElementsByTagName('li');
+            //alert(items.length);
+
+            //3번째 li의 텍스트값 -ccc
+            //alert(items[2].firstChild.data);  //ccc   //data= 값
+
+            //ul요소의 자식중에서 첫번째 요소의 텍스트노드 값
+            //alert(lists[0].firstChild.nodeName);   //text- 엔터도 텍스트노드로 인식됌
+            //왜? 줄바꿈을 위한 엔터가 텍스트 노드로 인지됌
+            //줄바꿈이 없다면 <li>요소가 첫자식.. 하지만 불편ㅜ
+
+            //ul의 첫번째 요소노드의 자식을 찾는경우가 더 많음
+            //alert(lists[0].firstElementChild.nodeName);  //li
+            //alert(lists[0].firstElementChild.firstChild.data);
+
+            //마지막 자식요소 값
+            //alert(lists[0].lastElementChild.firstChild.data);
+
+        </script>
+
+
+
+
+        <!-- 형제 요소 찾아 제어하기 -->
+        <hr>
+
+        <div>
+            <p>Fruits List</p>
+            <ul>
+                <li>apple</li>
+                <li>banana</li>
+                <li>orange</li>
+            </ul>
+        </div>
+        <!-- onclick 함수에 의해 실행되는 clickBtn()이름의 함수에 -->
+        <!-- this를 전달함으로써 클릭은 한 button객체를 전달할 수 잇음 -->
+        <button onclick="clickBtn(this)">Button</button>
+        <p></p>
+
+        <script>
+            // 전달받은 e가 button요소 객체임
+            function clickBtn(e){
+                //div요소 찾기
+                var divs= document.getElementsByTagName('div');
+
+                //div의 첫번째 자식인 p요소 찾기
+                var p= divs[0].firstElementChild;
+
+                //p요소 다음에 있는 ul요소 찾기
+                var ul= p.nextSibling;  //다음 형제노드 찾기
+                var ul= p.nextElementSibling;  //다음 형제요소노드 찾기
+
+                //alert(ul.nodeName);
+
+                //ul의 자식 노드들
+                //alert(ul.childNodes.length);  //7 엔터키까지..
+
+                //ul의 자식 요소노드들
+                //alert(ul.childElementCount);
+
+                //ul의 자식요소들의 텍스트값들 버튼 다음에 있는 p요소에 출력
+                //p요소에 id가 없기에 찾기가 불편함
+                
+                //방법- 버튼요소를 찾아서 그 다음요소를 제어
+
+                //이 영역이 버튼을 클릭했을때 실행되는 함수
+                //이 함수 안에서 이 버튼을 찾을 수 있지 않을까?
+                //how? -> e 로 전달받음
+
+                //alert(e.nodeName);
+                e.nextElementSibling.innerHTML= "aaa";
+
+            }
+        </script>
+
+
+    </body>
+</html>

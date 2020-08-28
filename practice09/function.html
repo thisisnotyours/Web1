@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>function</title>
+
+        <script>
+            function aaa(){
+                document.write("1. 함수호출<br>");
+            }
+
+            aaa();
+
+            bbb();
+
+
+            function bbb(){
+                document.write("2. 함수호출<br>");
+            }
+
+            ccc();  //함수호출 불가
+            ddd();  //함수호출 불가
+        </script>
+
+
+
+
+
+        <script>
+            function ccc(){
+                document.write("3. 함수호출<br>");
+            }
+
+            //위에있는 script 인식함
+            aaa();  //호출가능  
+            bbb();  //호출가능
+        </script>
+
+
+
+
+        <!-- 함수의 파라미터(매개변수) 전달 -->
+        <script>
+            document.write('<hr>');
+            document.write('<h4>파라미터 전달</h4>');
+
+            function eee(a){
+                document.write(a+" 입니다."+"<br>");
+            }
+
+            eee(10);
+            eee('kim');
+            eee(new Date());
+            eee();  //값을 전달 안하면 undefined.
+            document.write('<br>');
+            document.write('<hr>');
+
+
+
+
+
+            //파라미터(매개변수) 2개도 가능
+            function fff(a,b){
+                document.write(a + ", ");
+                document.write(b + "<br>");
+
+                if(a==undefined || b==undefined){
+                    document.write('=> stop! 전달할 값이 없습니다.<br>');
+                    return;   //함수종료
+                }
+
+                var c= a+b;
+                document.write('결과 : ' + c + "<br>");
+            }
+            
+            fff(5,3);
+            fff(5);   //5, undefined
+            fff('hi','안녕');
+            fff(5, "dog");
+            fff();   //undefined, undefined
+
+
+
+
+            //같은 이름의 함수가 또 선언되면?  ---> 덮어쓰기됨
+            function eee(a){
+                document.write('새로 정의한 eee함수<br>');
+            }
+
+
+            //같은 이름의 함수, but 다른 파라미터 === 오버로딩 안됨 -> overwrite임
+            function eee(a,b){
+                document.write("오버로딩 안됨, 그냥 새로운 함수로 변경 <br>");
+            }
+
+
+        </script>
+
+
+
+
+        <!-- 리턴과 기타내용 -->
+        <script>
+            document.write('<hr>');
+            document.write('<h4>return & etc</h4>');
+
+            function ggg(){
+                //return 10;
+                //return "aaa";
+                //return true;
+                //return 3+5;
+                //return 5>3;
+                return new Date();   //객체도 리턴됌
+            }
+
+            var g= ggg();
+            document.write(g+"<br>");
+
+
+
+            function hhh(){
+                return {name: "sam", age:20};  //사용자정의 객체 리턴
+            }
+
+            var h= hhh();   //함수를 호출한 '리턴값'을 h에 대입
+            document.write(h.name + "<br>");
+            document.write(h.age+"<br>");
+
+        </script>
+
+
+
+
+
+
+        <!-- 지역변수와 전역변수 -->
+        <script>
+            document.write('<hr>');
+            document.write('<h4>지역변수 & 전역변수 =local vs global</h4>');
+
+            //var a="GLOBAL(전역)변수"
+            function mmm(){
+                var a="지역변수";
+                //a="var없는 변수는 전역변수";
+                document.write("mmm의 a: "+ a + "<br>");
+            }
+
+            mmm();
+            document.write(" a : " + a + "<br>");
+
+
+            //JS에서의 지역은 {}가 아님. 함수영역을 말함!!
+            if(true){
+                var x=50;
+            }
+            document.write(x+"<br>");   //값 안나옴
+
+            
+        </script>
+
+
+
+
+
+        <!-- 익명함수 : 익명객체와 같은역할. 이벤트 처리용으로 많이 사용 -->
+        <script>
+            //익명함수는 반드시 변수에 대입하거나 파라미터로 전달하여 사용
+            var show= function(){
+                document.write('익명함수는 반드시 변수에 대입하여 사용한다.<br>');
+            }
+            
+            document.write("<hr>");
+            show();   //익명함수를 가진 변수를 함수이름으로 보고 호출
+
+
+
+            function kkk(gg){   //gg는 함수를 전달받음
+                gg();           //gg가 함수명이 되어 호출
+            }
+
+            kkk(show);   //변수의 값 전달
+
+
+
+
+
+
+            //리턴값으로 익명함수 리턴하기
+            function hhh(){
+                var ppp= function(){
+                    document.write('pppp<br>');
+                };
+
+                return ppp;   //익명함수를 리턴!
+            }
+
+            hhh();
+            var ttt= hhh();   //hhh()함수의 리턴값을 ttt변수가 받음
+            ttt();
+            
+
+
+
+        </script>
+
+
+    </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <body>
+        <script>
+            function ddd(){
+                document.write("4. 함수호출<br>");
+            }
+        </script>
+    </body>
+</html>

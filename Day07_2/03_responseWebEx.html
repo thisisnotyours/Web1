@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>반응형 웹</title>
+        <meta charset="utf-8">
+
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+
+            #wrap{
+                width: 90%;
+                border: 4px solid black;
+                margin: 0 auto;   /*요소가 가운데 정렬*/
+            }
+
+            #wrap div{
+                /* inline block요소는 기본적으로 좌우 여백이 있음(4-6px) */
+                display: inline-block;
+                height: 100px;
+                width: 100%;
+                margin-right: -6px;
+            }
+
+            #wrap div:first-child{
+                background-color: aqua;
+            }
+
+            #wrap div:last-child{
+                background-color: yellow;
+            }
+
+            #wrap div:nth-child(2){
+                background-color: tomato;
+            }
+
+            #wrap div:nth-child(3){
+                background-color: violet;
+            }
+
+            #wrap div:nth-child(4){
+                background-color: yellowgreen;
+            }
+
+
+
+
+            /* 미디어쿼리 적용 */
+            /* 320px 이상 : smart phone - portrait(세로버전) */
+            @media all and (min-width: 320px) {     
+                #wrap div{width: 100%;}
+            }
+
+            /* 600px 이상 : smart phone - landscape(가로버전)/ tablet */
+            @media all and (min-width: 600px) {     
+                #wrap div{width: 50%;}
+                #wrap div:last-child{width: 100%;}
+            }
+
+            /* 800px 이상 : desktop 모니터사이즈  */
+            @media all and (min-width: 800px) {     
+                #wrap div{width: 20%;}
+                #wrap div:last-child{width: 20%;}
+            }
+
+        </style>
+    </head>
+
+    <body>
+        
+        <div id="wrap">
+            <div>aa</div>
+            <div>bb</div>
+            <div>cc</div>
+            <div>dd</div>
+            <div>ee</div>
+        </div>
+
+    </body>
+</html>

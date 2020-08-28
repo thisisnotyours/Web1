@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>input 2</title>
+    </head>
+
+    <body>
+        
+        <!-- file 선택기 : 이미지는 주소창에(인코딩방식- enctype) 보여질 수 없으니 당연히 post 타입으로-->
+        <form action="./file.php" method="POST" enctype="multipart/form-data">
+            <!-- meta data: 파일을 보낼때는 파일의 정보도 함께 보내야함 ex; type, name, size..etc -->
+            <input type="file" name="aaa" accept="image/png">
+            <input type="submit">
+        </form>
+
+
+        <hr>
+
+
+
+
+
+        <!-- '여러 파일'을 한번에 전송하기 -->
+        <form action="./file2.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="bbb[]" multiple="multiple">
+            <input type="submit">
+        </form>
+
+
+        <hr>
+
+
+
+
+
+
+
+
+        <!-- 다양한 입력 type 들 (브라우저마다 모양이 다름) -->
+        <!-- 브라우저마다 지원하는 범위가 아름. 즉, 안되는 브라우저도 있음 -->
+        <input type="date"><br>
+        <input type="datetime"><br>
+        <input type="datetime-local"><br>
+
+        <!-- 색상 -->
+        <input type="color"><br>
+
+        <!-- 이메일 (모바일에서 열때 소프트 키패드가 다름) -->
+        <input type="email"><br>
+
+        <!-- 전화번호  (모바일에서 열때 소프트 키패드가 다름)-->
+        <input type="tel"><br>
+
+        <!-- 인터넷 주소  (모바일에서 열때 소프트 키패드가 다름)-->
+        <input type="url"><br>
+
+        <!-- 검색입력 -->
+        <input type="search"><br>
+
+
+
+
+
+        <!-- 새롭게 추가된 속성들 -->
+        <hr>
+
+        <!-- 힌트 -->
+        <input type="text" placeholder="input name" autofocus>
+
+        <!-- 반드시 입력해야 하는 input요소 지정  -- required: 반드시 입력하라고 창이 뜸 -->
+        <form action="">
+            <input type="text" required="required">
+            <input type="submit">
+        </form>
+
+
+        <!-- 읽기 전용/ 쓰기 금지 -->
+        <input type="text" readonly value="Sam"><br>
+
+        자동 포커스 : 
+        <!-- 페이지가 열리면 자동으로 포커스 받기 -->
+        <input type="text" autofocus><br>
+
+        최대 글자수 제한 : 
+        <!-- 최대 글자수 제한 -->
+        <input type="text" maxlength="5"><br>
+
+
+        자동기능 완성 : 
+        <!-- 자동완성기능 : <datalist>와 함께 사용 -->
+        <input type="text" autocomplete list="datas">
+        <!-- 자동완성으로 보여줄 항목 리스트 만들기 -->
+        <datalist id="datas">
+            <option value="Canada"></option>
+            <option value="China"></option>
+            <option value="Japan"></option>
+            <option value="Malaysia"></option>
+        </datalist> <br>
+
+        <input type="text" autocapitalize><br>
+
+
+        <!-- 유효성 검시 : 입력형식에 맞지 않는 값을 검사 -->
+        <!-- 이때 사용하는 것이 정규표현식 -->
+        <form action="">
+            <!-- 반드시 영문자나 숫자 1개 이상이고 @다음에 영문자 1개 이상 이어야만 함 -->
+            이메일 : 
+            <input type="text" pattern="[a-zA-z0-9!#]+@[a-zA-z]+">
+            <input type="submit"><br>
+        </form>
+
+        
+        
+        <form action="">
+            <!-- 첫 숫자가 2~3자리, 두번째 3~4자리, 세번째 4자리 -->
+            전화번호 : 
+            <input type="text" pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}">
+            <input type="submit">
+        </form>
+
+
+
+        
+
+
+    </body>
+</html>

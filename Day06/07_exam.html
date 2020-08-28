@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>title</title>
+        <meta charset="utf-8">
+
+        <style>
+            p#w{
+                background-color: yellow;
+                /* width: 400px; */
+                min-width: 800px;
+                min-height: 100px;
+            }
+
+            /* overflow */
+            div#target{
+                border: 2px solid blue;
+                height: 100px;
+                width: 300px;
+
+                /* 자식요소가 부모요소보다 클때 어떻게 할지 */
+                overflow: hidden;
+                overflow: scroll;   /*무조건 스크롤바 보이기(아래쪽 스크롤도)*/
+                overflow: auto;   /*스크롤이 필요할때만 보이도록- 아래스크롤은 안보이게됨*/
+            }
+
+
+            #target p{    /*id가 target의 자손들*/
+                background-color: lightgreen;
+                width: 200px;
+                height: 50px;
+            }
+
+
+            div.aaa{
+                border: 1px solid red;
+                width: 300px;
+                height: 100px;
+
+                overflow: auto;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        
+        <!-- 요소크기 -->
+        <p id="w">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates quibusdam cupiditate at laudantium! Autem, tenetur? Minima veritatis quisquam temporibus dolorum nam expedita, consequatur sequi optio officia, quos magnam excepturi deserunt!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit dicta optio perferendis dolores! In accusantium, tempore aperiam dignissimos impedit debitis quibusdam facere eum ea temporibus sed suscipit inventore laboriosam magnam?
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione officiis voluptate distinctio tenetur? Dolorem, repellat sunt assumenda animi at molestiae tenetur obcaecati corrupti nam quis ut eos quas porro iste!
+        </p>
+
+        <hr>
+
+        <!-- overflow -->
+        <div id="target">
+            <p>block #1</p>
+            <p>block #2</p>
+            <p>block #3</p>
+            <p>block #4</p>
+            <p>block #5</p>
+        </div>
+
+        <div class="aaa">
+            <img src="./pome.png" alt="pome">
+        </div>
+
+        <hr>
+
+        <!-- z-index : 요소의 놓여지는 순서 -->
+        <div id="box1">box #1</div>
+        <div id="box2">box #2</div>
+        <div id="box3">box #3</div>
+
+        <!-- z-index의 스타일링 작업 -->
+        <style>
+            #box1{
+                position: absolute;
+                top: 0px; left: 0px;
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                z-index: 2;    /*보이는 순서(앞뒤축)*/
+            }
+
+            #box2{
+                position: absolute;
+                top: 30px; left: 30px;
+                width: 100px;
+                height: 100px;
+                background-color: tomato;
+                z-index: 1;
+            }
+
+            #box3{
+                position: absolute;
+                top: 60px; left: 60px;
+                width: 100px;
+                height: 100px;
+                background-color: green;
+                z-index: 0;
+            }
+        </style>
+
+    </body>
+</html>

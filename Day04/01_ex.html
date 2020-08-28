@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS 기본문법</title>
+        <meta charset="utf-8">
+
+        <!-- 스타일에 시트 작성작업은 head 영역안에 사용 권장 -->
+        <!-- 웹 문서(HTML)에 스타일 적용(스타일을 지정하는 언어/문법 : CSS3) -->
+
+        <style>
+            /* 이 style요소 안에서는 html이 아니라 css문법체계를 따름 */
+            /* 주요용어 : 선택자, 속성, 값 */
+
+            /* 선택자의 종류 */
+            /* 1. 타입(요소)선택자 */
+            h2{color: red;}
+            p{color: blue; font-family: serif;}
+
+            /* 2. 전체 선택자 */
+            *{color: yellowgreen; font-style: italic;}   /*같은 요소에 같은 스타일 적용시 개별선택자가 우선적용됨*/
+
+            /* 3. 아이디 선택자 */
+            #p1{color: violet;}
+
+            /* 4. 클래스 선택자 -class 는 그룹을 지칭 */
+            .aa{color: tomato;}  /*클래스는 타입 선택자보다 우선시됨*/
+
+            /* p요소 중에서 class가 aa인 요소 선택 */
+            p.aa{color: teal;}
+
+            /* 5. 선택자 그룹 */
+            li, a{color: cornflowerblue;}
+
+            /* 6. 자식과 자손 선택자 */
+            #ss>p{color: black;}
+            #ss p{color: lime;}  /*자식도 자손으로 들어감- div 자손들 p 다 적용*/
+
+            /* 아래둘은 완전히 다름 */
+            p.aa{}  /*p요소중에서 class 속성값이 aa인 요소 선택*/
+            p .aa{} /*p요소의 자손들중에서 class속성이 aa인 요소들 선택*/
+
+            /* 이런식까지... id가 kk인 애 자손ul의 클래스가 gg인 애의 자식(>)li*/
+            #kk ul.gg>li{background-color: black;}
+
+            /* 7. 속성 선택자 */
+            p[class]{font-size: 30px;} /*class라는 속성을 가지고 있는 p요소*/
+            div[id=ss]{font-weight: bold;}  /*id가 ss인 div요소*/
+
+            /* 8. 의사(pseudo-class 수도클래스) 선택자 */
+            /* 브라우저마다 지원하는 것이 다름 */
+            a:link{color:blue;}
+            a:visited{color: rebeccapurple;}
+            a:hover{color: green;}
+            a:active{color: red;}
+            /* :hover는 반드시 :link, visited 뒤에 작성해야함 */
+            /* :active는 반드시 :hover뒤에 작성해야함 */
+
+            #kk ul li:first-child{color: red;}   /*첫째*/
+            #kk ul li:nth-child(2){color: hotpink;}  /*둘째*/
+            #kk ul li:last-child{color: green ;}  /*셋째*/
+
+
+            /* 수식을 이용한 n번째 자식 스타일 적용 */
+            table tr:nth-child(2n+1){background-color: aqua;}   /*홀수라인만 컬러가 적용됨*/
+            
+        </style>
+    </head>
+
+    <body>
+        
+        <h2 class="aa">CSS Selector Test</h2>
+
+        <p id="p1">Hello world!</p>
+
+        <p class="aa">Nice to meet you.</p>
+        <!-- 1.타입(요소)선택자, 2.전체선택자, 3.아이디 선택자, 4.클래스 선택자 -->
+
+        <!-- 5. 선택자 그룹(다중 선택자) -->
+        <ul>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <a href="">NAVER</a>
+
+        <!-- 6. 자식, 자손 선택자 -->
+        <div id="ss">
+
+            <h4>Region</h4>
+            <p>Hello world</p>
+
+            <div>
+                <p>apple</p>
+                <p>orange</p>
+                <p>banana</p>
+            </div>
+
+        </div>
+
+
+        <!-- 다소 복잡한 선택자 -->
+        <div id="kk">
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+            </ul>
+            <ul class="gg">
+                <li>aaa</li>
+                <li>bbb</li>
+                <li>ccc</li>
+            </ul>
+        </div>
+
+
+        <!-- 8. 의사 선택자(수도=가짜)  -->
+        <a href="http://www.google.com">Google</a>
+
+
+
+        <!-- 수식을 이용한 n번째 자식 스타일 -->
+        <table border="1">
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+
+            <tr>
+                <td>aa</td>
+                <td>bb</td>
+                <td>cc</td>
+                <td>dd</td>
+            </tr>
+        </table>
+    </body>
+</html>

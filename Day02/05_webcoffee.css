@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+h1,p{font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    color: black;}
+
+h1{border-bottom: 2px solid gray;
+   color: cornsilk;}
+
+body{background-color: coral;}
+
+
+
+h2{color: cornsilk;}
+
+
+
+/* 다른 페이지 */
+.second{background-color: violet;}
+
+li{font-style: italic;}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>dom control</title>
+    </head>
+    <body>
+        <!-- DOM노드의 삭제와 동적생성 및 추가 -->
+        <button onclick="addText()">add Text Node</button>
+        <button onclick="addElement()">add Element Node</button>
+        <button onclick="removeNode()">remove Node</button>
+        <p class="pp"></p>
+
+        <script>
+            function addText(){
+                //p요소에 추가할 노드생성
+                var node= document.createTextNode('This is text');
+                var node= document.createTextNode('<a href="">Google</a>');   //태그문을 글씨로
+
+                //텍스트노드는 태그문 조차도 그냥 글씨로 생각함!! 그래서 태그문 발동안함 **
+
+                var targets= document.getElementsByClassName('pp');
+                targets[0].appendChild(node);
+                
+                //위 작업들을 축약으로..
+                targets[0].textContent='<a href="">Naver</a>';   //textContnet- 무엇을 쓰든 글씨로 알아들음
+            }
+
+
+            function addElement(){
+                var node= document.createElement('a');    //a요소 만들어짐
+
+                //속성노드 추가
+                var attr= document.createAttribute('href');
+                attr.value="http://www.google.com";
+                node.setAttributeNode(attr);
+
+                //텍스트노드 추가
+                var text= document.createTextNode('Google');
+                node.appendChild(text);
+
+                //node.insertBefore(text, node.firstChild);
+
+                //p요소에 a요소 붙이기
+                var targets= document.getElementsByClassName('pp');
+                targets[0].appendChild(node);     //덧붙이기
+
+
+                //요소노드 붙이는 작업이 한방에 축약으로
+                //targets[0].innerHTML='<a href="">Google</a>'   //=을쓰면 기존의것 바꿔치기됌
+
+                targets[0].innerHTML+='<a href="">Naver</a>'
+            }
+
+
+
+
+            function removeNode(){
+                var target= document.getElementsByClassName('pp')[0];
+                var node= target.firstChild;
+
+                target.removeChild(node);
+            }
+        </script>
+
+
+        <!-- 새로나온 요소찾는 기법 -->
+        <!-- css의 선택자를 이용하는 기법 -->
+        <hr>
+        <h4>aaa</h4>
+        <h4>bbb</h4>
+        <h4>ccc</h4>
+        
+        <script>
+            document.querySelector('.pp');
+            document.querySelector('#p1');
+            document.querySelector('div .pp');
+            var e= document.querySelector('h4');   //많은 h4중 한놈만 찾아짐
+            e.onclick= function(){                 
+                alert('aa');
+            }
+
+
+            var es= document.querySelectorAll('h4');
+            es[1].onclick= function(){
+                alert(this);  //function안의 this는 클릭이벤트를 발동한 h4요소를 말함
+            }
+
+
+            es[2].onclick= function(e){
+                alert(e);   //e= mouse event객체
+            }
+            
+        </script>
+    </body>
+</html>
